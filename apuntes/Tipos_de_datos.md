@@ -27,5 +27,19 @@ date 'yyyy-mm-dd'
 time 'hh:mm:ss'
 datetime combinacion de ambas 'yyyy-mm-dd hh:mm:ss'
 timestamp combinacion de fecha y hora pero con menos rango de tiempo, del 1 de enero de 1970 a 2037
-
+###Tipos de datos numericos de punto flotante
+DROP TABLE IF EXISTS `flotantes`; CREATE TABLE IF NOT EXISTS `flotantes` (`id` int NOT NULL AUTO_INCREMENT, `float` float NOT NULL, `double` double NOT NULL, `real` double NOT NULL, `decimal_d_mayor_cero` decimal(10,2) NOT NULL, `decimal_d_igual_cero` decimal(10,0) NOT NULL, PRIMARY KEY(`id`) ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+AUTO_INCREMENT = 3, hace que el auto increment empieze en 3
+###Test
+INSERT INTO flotantes(`id`, `float`, `double`, `real`, `decimal_d_mayor_cero`, `decimal_d_igual_cero`) VALUES(3.141592653589793, 3.141592653589793, 3.141592653589793, 3.141592653589793, 3.141592653589793, 3.141592653589793)
+id = 3, float = 3.14159, double = 3.141592653589793, decimal_d_mayor_cero = 3.14, decimal_d_igual_cero = 3
+###Tipos de datos 2
+DROP TABLE IF EXISTS `decimal_table`; CREATE TABLE IF NOT EXISTS `decimal_table`(`id` int NOT NULL AUTO_INCREMENT, `field_2,1` decimal(2,1) DEFAULT NULL, `field_8,2` decimal(8,2) DEFAULT NULL, `field_10,2` decimal(10,2) DEFAULT NULL, `field_10,4` decimal(10,4) DEFAULT NULL, PRIMARY KEY(`id`) ) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+###Test 2
+INSERT INTO decimal_table(`id`, `field_2,1`, `field_8,2`, `field_10,2`, `field_10,4`) VALUES(3.141592653589793, 3.141592653589793, 3.141592653589793, 3.141592653589793, 3.141592653589793);
+id = 3, field_2,1 = 3.1, field_8,2 = 3.14, field_10,2 = 3.14, field_10,4 = 3,1416
+###Collate y Charset
+DROP TABL IF EXISTS `collation_case`; CREATE TABLE IF NOT EXISTS `collation_case` (`id` int NOT NULL AUTO_INCREMENT, `utf8_unicode_ci` char(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL, `latin1_general_cs` char(10) CHARACTER SET latin1 COLLATE latin1_general_cs DEFAULT NULL, `ascii_general_ci` char(10) CHARACTER SET ascii COLLATE ascii_general_ci DEFAULT NULL, `utf8_bin` char(10) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL, `latin1_bin` char(10) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `ascii_bin` char(10) CHARACTER SET ascii COLLATE ascii_bin DEFAULT NULL, PRIMARY
+KEY (`id`) ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+El _cs significa case sensitive, si no se quiere que sea case sensitive se usa _ci, que convierte todas las mayusculas en minusculas
 
