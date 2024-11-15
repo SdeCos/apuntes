@@ -44,4 +44,4 @@ KEY (`id`) ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8
 El cs significa case sensitive, si no se quiere que sea case sensitive se usa ci, que convierte todas las mayusculas en minusculas
 ###Ordenamiento
 DROP TABLE IF EXISTS `los_spanish`; CREATE TABLE IF NOT EXISTS `los_spanish` (`utf8_spanish_ci` varchar(15) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL, `utf8_spanish2_ci` varchar(15) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish2_ci DEFAULT NULL) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
+NSERT INTO `los_spanish` (`utf8_spanish_ci`, `utf8_spanish2_ci`) VALUES('Año', 'Año'),('Cortes', 'Cortes'), ('Cruz', 'Cruz'), ('Chollo', 'Chollo'), ('Llorar', 'Llorar'), ('Lamina', 'Lamina');
