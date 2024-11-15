@@ -39,7 +39,9 @@ DROP TABLE IF EXISTS `decimal_table`; CREATE TABLE IF NOT EXISTS `decimal_table`
 INSERT INTO decimal_table(`id`, `field_2,1`, `field_8,2`, `field_10,2`, `field_10,4`) VALUES(3.141592653589793, 3.141592653589793, 3.141592653589793, 3.141592653589793, 3.141592653589793);
 id = 3, field_2,1 = 3.1, field_8,2 = 3.14, field_10,2 = 3.14, field_10,4 = 3,1416
 ###Collate y Charset
-DROP TABL IF EXISTS `collation_case`; CREATE TABLE IF NOT EXISTS `collation_case` (`id` int NOT NULL AUTO_INCREMENT, `utf8_unicode_ci` char(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL, `latin1_general_cs` char(10) CHARACTER SET latin1 COLLATE latin1_general_cs DEFAULT NULL, `ascii_general_ci` char(10) CHARACTER SET ascii COLLATE ascii_general_ci DEFAULT NULL, `utf8_bin` char(10) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL, `latin1_bin` char(10) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `ascii_bin` char(10) CHARACTER SET ascii COLLATE ascii_bin DEFAULT NULL, PRIMARY
+DROP TABLE IF EXISTS `collation_case`; CREATE TABLE IF NOT EXISTS `collation_case` (`id` int NOT NULL AUTO_INCREMENT, `utf8_unicode_ci` char(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL, `latin1_general_cs` char(10) CHARACTER SET latin1 COLLATE latin1_general_cs DEFAULT NULL, `ascii_general_ci` char(10) CHARACTER SET ascii COLLATE ascii_general_ci DEFAULT NULL, `utf8_bin` char(10) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL, `latin1_bin` char(10) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `ascii_bin` char(10) CHARACTER SET ascii COLLATE ascii_bin DEFAULT NULL, PRIMARY
 KEY (`id`) ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-El _cs significa case sensitive, si no se quiere que sea case sensitive se usa _ci, que convierte todas las mayusculas en minusculas
+El cs significa case sensitive, si no se quiere que sea case sensitive se usa ci, que convierte todas las mayusculas en minusculas
+###Ordenamiento
+DROP TABLE IF EXISTS `los_spanish`; CREATE TABLE IF NOT EXISTS `los_spanish` (`utf8_spanish_ci` varchar(15) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL, `utf8_spanish2_ci` varchar(15) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish2_ci DEFAULT NULL) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
