@@ -30,3 +30,8 @@ Compara una cosa con otra (mayor, menor, igual, distinto, mayor o igual...)
 CREATE TABLE **nombre_nuevo** SELECT DISTINCT * FROM **nombre_antiguo**; puede crearse con menos columnas, seleccionando unicamente las que se quieren copiar
 ###RENOMBRAMIENTO DE COLUMNAS
 SELECT DISTINCT ID, **columna nombre antigua** AS **cloumna nombre nuevo** , dept_name AS departamento, salary AS salario FROM profesor; 
+###VISTA
+CREATE VIEW end AS SELECT * FROM instructor WHERE salary<48000; Crea una vista
+selet * from end; Selecciona todo el contenido de la vista creada
+Para eliminarla drop view end;
+
