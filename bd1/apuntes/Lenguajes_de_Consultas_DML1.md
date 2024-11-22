@@ -12,8 +12,7 @@ Procedimiento de seleccion de tuplas que satisfacen un predicado, sigma en algeb
 
 ##Patrones de busqueda
 ###TEST DE COMPARACION
-Compara una cosa con otra (mayor, menor, igual, distinto, mayor o igual...)
-###COMPOSICIONES COMPUESTAS DE COMPARACION
+Compara una cosa con otra (mayor, menor, igual, distinto, mayor o igual...) ###COMPOSICIONES COMPUESTAS DE COMPARACION
 **AND OR NOT** Ej: select * from `section where `course+id`=BIO-101` AND `year`=`2017`
 ###RANGOS
 **BETWEEN** Ej: SELECT * FROM `instructor` WHERE `salary` BETWEEN '60000' and '87000'
