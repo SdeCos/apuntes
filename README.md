@@ -1,6 +1,6 @@
 # ToDo
 
-- [ ] Apuntes PRG1
+- [x] Apuntes PRG1
 - [ ] Apuntes PRG2
 - [ ] Apuntes EDA1
 - [ ] Apuntes BD1
