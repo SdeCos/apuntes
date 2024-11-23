@@ -16,4 +16,4 @@ La instrucción utilizada para imprimir por pantalla en java es **System.out.pri
 
 > System.out.println(**algo**);
 
-**algo**: Es el dato que se quiere imprimir, puede ser una cadena de texto, un número o una [variable](/variables.md)
+**algo**: Es el dato que se quiere imprimir, puede ser una cadena de texto, un número o una [variable](variables.md)
