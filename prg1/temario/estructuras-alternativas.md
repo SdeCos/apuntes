@@ -4,7 +4,7 @@
 
 Evalúa una condición y ejecuta el bloque de código si es verdadera\
 
-![condicionSimple](/imagenes/condicionSimple.svg)
+![condicionSimple](../imagenes/condicionSimple.svg)
 
 ```java
 if (condicion)
@@ -15,7 +15,7 @@ if (condicion)
 
 Evalúa la condición y ofrece un segundo bloque de código que se ejecuta si la condición es falsa.\
 
-![condicionConAlternativa](/imagenes/condicionConAlternativa.svg)
+![condicionConAlternativa](../imagenes/condicionConAlternativa.svg)
 
 ```java
 if (condicion)
@@ -28,7 +28,7 @@ else
 
 Evalúa múltiples condiciones en cadena.\
 
-![condicionAnidada](/imagenes/condicionAnidada.svg)
+![condicionAnidada](../imagenes/condicionAnidada.svg)
 
 ```java
 if (condicion1)
