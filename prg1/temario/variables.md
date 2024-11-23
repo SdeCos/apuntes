@@ -29,7 +29,7 @@ Las variables son utilizadas para almacenar datos en un programa. Pueden contenr
 **Tipos**
 |Tipos primitivos|
 |--|
-|![Tipos de datos primitivos](/imagenes/tiposPrimitivos.svg)
+|![Tipos de datos primitivos](../imagenes/tiposPrimitivos.svg)
 
 ### Funciones matemáticas
 
