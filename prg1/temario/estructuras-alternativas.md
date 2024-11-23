@@ -2,7 +2,7 @@
 
 ## Condición simple
 
-Evalúa una condición y ejecuta el bloque de código si es verdadera\
+Evalúa una condición y ejecuta el bloque de código si es verdadera.
 
 ![condicionSimple](../imagenes/condicionSimple.svg)
 
@@ -13,7 +13,7 @@ if (condicion)
 
 ## Condición con alternativa
 
-Evalúa la condición y ofrece un segundo bloque de código que se ejecuta si la condición es falsa.\
+Evalúa la condición y ofrece un segundo bloque de código que se ejecuta si la condición es falsa.
 
 ![condicionConAlternativa](../imagenes/condicionConAlternativa.svg)
 
@@ -26,7 +26,7 @@ else
 
 ## Condiciones anidadas
 
-Evalúa múltiples condiciones en cadena.\
+Evalúa múltiples condiciones en cadena.
 
 ![condicionAnidada](../imagenes/condicionAnidada.svg)
 
