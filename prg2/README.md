@@ -6,4 +6,4 @@
   - [x] [Vista privada de las clases](temario/vprivclases.md)
   - [x] [Vista privada de los objetos](temario/vprivobjetos.md)
   - [x] [Miembros de clase](temario/miembros-de-clase.md)
-- [ ] [Colaboracion entre objetos:HOOD](temario/colaboracion-entre-objetos.md)
+- [x] [Colaboracion entre objetos:HOOD](temario/colaboracion-entre-objetos.md)
