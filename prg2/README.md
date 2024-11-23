@@ -1,6 +1,6 @@
 # Temario
 
-- [ ] [Clases y Objetos](temario/introduccion.md)
+- [x] [Clases y Objetos](temario/introduccion.md)
   - [ ] [Vista pública de las clases](temario/vpubclases.md)
   - [ ] [Vista pública de los objetos](temario/vpubobjetos.md)
   - [ ] [Vista privada de las clases](temario/vprivclases.md)
