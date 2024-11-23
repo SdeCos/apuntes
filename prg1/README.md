@@ -6,5 +6,5 @@
 - [x] [Estructuras de control](temario/estructuras-control.md)
   - [x] [Alternativas](temario/estructuras-alternativas.md)
   - [x] [Repetitivas](temario/estructuras-repetitivas.md)
-- [ ] [Matrices](temario/matrices.md)
-- [ ] [Metodos estaticos](temario/metodos-estaticos.md)
+- [x] [Matrices](temario/matrices.md)
+- [x] [Metodos estaticos](temario/metodos-estaticos.md)
