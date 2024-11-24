@@ -1,6 +1,7 @@
 # Temario
 
-- [ ] [ Estructuras de datos & conceptos fundamentales ](temario/estructuras-de-datos.md)
+- [ ] [ Introducción ](temario/introduccion.md)
+- [ ] [ Estructuras de datos & conceptos fundamentales ](temario/primitivas-matrices-clases-objetos.md)
 - [ ] [ Listas ](temario/listas.md)
 - [ ] [ Pilas ](temario/pilas.md)
 - [ ] [ Colas ](temario/colas.md)
