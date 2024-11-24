@@ -2,7 +2,7 @@
 
 ## Por que
 
-Aunque con los conceptos ya conocidos (matrices y objetos), se pueden hacer muchas cosas, no son suficientes para manejar retos mas complejos.\
+Aunque con los conceptos ya conocidos (matrices y objetos) se pueden hacer muchas cosas, no son suficientes para manejar retos mas complejos.\
 La necesidad de manejar estructuras de datos más complejas surge naturalmente:
 
 - Al intentar implementar algoritmos y funcionalidades.
