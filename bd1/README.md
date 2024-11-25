@@ -12,7 +12,7 @@ sudo apt upgrade\
 sudo apt install mysql\
 sudo apt install git\
 
-## Crear usuario root mysql
+## Crear usuario administrador mysql
 
 sudo mysql -u root -p\
 CREATE USER 'saul'@'localhost' IDENTIFIED BY '1234';\
