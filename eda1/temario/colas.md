@@ -1,22 +1,21 @@
-# Colas
+# colas
 
-## ¿Por qué?
+## ¿por qué?
 
-- Proporcionan una manera eficiente de manejar datos con un comportamiento "primero en entrar, primero en salir" (FIFO).
-- Esenciales para modelar situaciones de espera.
+- proporcionan una manera eficiente de manejar datos con un comportamiento "primero en entrar, primero en salir" (fifo).
+- esenciales para modelar situaciones de espera.
 
-## ¿Qué?
+## ¿qué?
 
-Estructura de datos lineal que sigue el principio FIFO (First In, Firts Out).
+estructura de datos lineal que sigue el principio fifo (first in, firts out).
 
-- Los elementos son añadidos al final de la cola y eliminados desde el frente.
-- El primer elemento insertado es el primero en salir
-- Operaciones básicas:
-  - **Enqueue**: añadir elemento al final de la cola
-  - **Dequeue**: eliminar el elemento del frente de la cola
+- los elementos son añadidos al final de la cola y eliminados desde el frente.
+- el primer elemento insertado es el primero en salir
+- operaciones básicas:
+  - **enqueue**: añadir elemento al final de la cola
+  - **dequeue**: eliminar el elemento del frente de la cola
   - **Peek** o **Front**: ver el elemento en el frente sin eliminarlo
 - Puede implementarse mediante arrays o listas enlazadas
-
 ## ¿Para qué?
 
 - Gestión de procesos
