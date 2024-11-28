@@ -59,12 +59,12 @@ Partes:
 - Procedimiento de seleccion de tuplas que satisfacen un predicado
 - Notacion: σ (sigma minuscula)
 
-La seleccion σ nombre_dpto=Fisica(profesores) devolveria la relacion:
+La seleccion **σ nombre_dpto=Fisica(profesores)** devolveria la relacion:
 | | | | |
 |-|-|-|-|
 | 20104 | Juan Luis Vidal | Fisica | 34 |
 
-La seleccion σ edad>50(profesores) devolveria la relacion:
+La seleccion **σ edad>50(profesores)** devolveria la relacion:
 
 |       |                  |             |     |
 | ----- | ---------------- | ----------- | --- |
@@ -72,7 +72,7 @@ La seleccion σ edad>50(profesores) devolveria la relacion:
 
 Se pueden utilizar los operadore logicos para seleccionar varios atributos:
 
-La seleccion σ nombre_dpto=informatica ^ edad<50(profesores) devolveria la relacion:
+La seleccion **σ nombre_dpto=informatica ^ edad<50(profesores)** devolveria la relacion:
 | | | | |
 | ----- | ---------------- | ----------- | --- |
 | 20102 | Juan Tortajada | Informatica | 30 |
@@ -82,7 +82,8 @@ La seleccion σ nombre_dpto=informatica ^ edad<50(profesores) devolveria la rela
 
 - Devuelve su relacion de atributos excluyendo algunos de ellos, **se eliminan todas las filas duplicadas**
 - Notacion: Π (pi mayuscula)
-  La proyeccion Π id, nombre, edad(profesores) devolveria:
+
+La proyeccion **Π id, nombre, edad(profesores)** devolveria:
 
 | ID    | Nombre           | Edad |
 | ----- | ---------------- | ---- |
@@ -93,7 +94,7 @@ La seleccion σ nombre_dpto=informatica ^ edad<50(profesores) devolveria la rela
 | 20105 | Manuel Masias    | 40   |
 | 20106 | Alba Hernandez   | 30   |
 
-Se pueden combinar, por ejemplo, Π nombre(σ nombre_dpto=Fisica(profesores)), devolveria:
+Se pueden combinar, por ejemplo, **Π nombre(σ nombre_dpto=Fisica(profesores))**, devolveria:
 | |
 | --------------- |
 | Juan Luis Vidal |
@@ -105,18 +106,20 @@ Se pueden combinar, por ejemplo, Π nombre(σ nombre_dpto=Fisica(profesores)), d
 - Permite combinar informacion de dos relaciones cualesquiera
 - Notacion: X (rXs)
 
-Tabla A
+Tabla A:
 | |
 | - |
 | a |
 | b |
-Tabla B
-| |
-| - |
-| x |
-| y |
 
-AxB:
+Tabla B:
+
+|     |
+| --- |
+| x   |
+| y   |
+
+**AxB**:
 | | |
 | - | - |
 | a | x |
@@ -145,7 +148,7 @@ Tabla B:
 | 3   | Luis García | 7000    |
 | 4   | Ana Gómez   | 5500    |
 
-Tabla AᴖB:
+Tabla **AᴖB**:
 
 | ID  | Nombre      | Salario |
 | --- | ----------- | ------- |
@@ -172,7 +175,7 @@ Tabla B:
 | 4   | Ana Gómez   | 5500    |
 | 5   | Pablo Díaz  | 6200    |
 
-Tabla AUB:
+Tabla **AUB**:
 
 | ID  | Nombre      | Salario |
 | --- | ----------- | ------- |
@@ -199,7 +202,7 @@ Y una consulta B:
 |INF-456|
 |INF-101|
 
-El resultado A-B seria:
+El resultado **A-B** seria:
 | |
 |---------|
 |INF-301|
@@ -217,7 +220,7 @@ Tabla A:
 | 2   | María López | 6000    |
 | 3   | Luis García | 7000    |
 
-Tabla p IdEmpleado,NombreEmpleado,SalarioEmpleado(A):
+Tabla **p IdEmpleado,NombreEmpleado,SalarioEmpleado(A)**:
 
 | IdEmpleado | NombreEmpleado | SalarioEmpleado |
 | ---------- | -------------- | --------------- |
@@ -252,7 +255,7 @@ Tabla B:
 | 2   | Proyecto B | Marketing    |
 | 4   | Proyecto C | IT           |
 
-Tabla A⋈B:
+Tabla **A⋈B**:
 
 | ID  | Nombre      | Departamento | Proyecto   |
 | --- | ----------- | ------------ | ---------- |
@@ -281,14 +284,14 @@ Tabla B:
 | 2   | Proyecto B | Marketing    |
 | 4   | Proyecto C | IT           |
 
-Tabla A⟕B:
+Tabla **A⟕B**:
 | ID | Nombre | Departamento | ID | Proyecto | Departamento |
 |------|--------------|--------------|------|--------------|--------------|
 | 1 | Juan Pérez | Ventas | 1 | Proyecto A | Ventas |
 | 2 | María López | Finanzas | NULL | NULL | NULL |
 | 3 | Luis García | Marketing | 2 | Proyecto B | Marketing |
 
-Tabla A⟖B:
+Tabla **A⟖B**:
 | ID | Nombre | Departamento | ID | Proyecto | Departamento |
 |------|--------------|--------------|------|--------------|--------------|
 | 1 | Juan Pérez | Ventas | 1 | Proyecto A | Ventas |
@@ -308,7 +311,7 @@ Tabla A:
 | 2   | María López | 6000    |
 | 3   | Luis García | 7000    |
 
-Resultado G_sum(salario) (profesores): 5000 + 6000 + 7000 = **18000**
+Resultado **G_sum(salario) (profesores)**: 5000 + 6000 + 7000 = **18000**
 
 ### Division
 
@@ -337,7 +340,7 @@ Tablas Habilidades_Requeridas:
 | Python |
 | SQL |
 
-Resultado Habilidades÷Habilidades_Requeridas:
+Resultado **Habilidades÷Habilidades_Requeridas**:
 | ID_Empleado |
 | ----------- |
 | 1 |
