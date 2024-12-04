@@ -16,7 +16,7 @@
 
 1. Todos los predicados de la selección se colocan entre guiones bajos (\_).
 
-   > Ej σ*campoid=valor*(R)
+   > Ej σ_campoid=valor\_(R)
 
 2. Si el campo en cuestión, tiene guiones bajos originalmente, estos se eliminaran en el momento de hacer la consulta.
 
@@ -24,11 +24,11 @@
 
 3. La selección no incluye espacios en blanco aunque contemple operadores
 
-   > Ej σ*campoid>valor^campoid<=valor*(R)
+   > Ej σ_campoid>valor^campoid<=valor\_(R)
 
 4. Todos los predicados de la selección se separan por operadores.
 
-   > Ej σ*campoid>valor^campoid<=valor*(R)
+   > Ej σ_campoid>valor^campoid<=valor\_(R)
 
 5. Entre el último atributo de la selección y la relación hay un guión bajo.
 
@@ -36,7 +36,7 @@
 
 1. Entre una proyección y una selección hay un espacio en blanco.
 
-   > Ej Πv.id,pr.nombre,v.cantidad σ*v.cantidad>9*(R)
+   > Ej Πv.id,pr.nombre,v.cantidad σ_v.cantidad>9\_(R)
 
 2. La proyección no incluye espacios en blanco entre sus atributos
 
