@@ -37,7 +37,7 @@ def menu():
             clear_terminal()
         elif choice == "4":
             clear_terminal()
-            euler()
+            #    euler()
             clear_terminal()
         elif choice == "5":
             clear_terminal()

@@ -15,7 +15,7 @@ def runge_kutta_sistema_ecuaciones():
 
     # Valores iniciales y parámetros
     t_min = float(input("Introduce el valor minimo de t: "))
-    t_max = float(input("Introduce el valor maximo de t:"))
+    t_max = float(input("Introduce el valor maximo de t: "))
     y1_inicial = float(input("Introduce el valor de y1 en t_min: "))
     y2_inicial = float(input("Introduce el valor de y1 en t_min: "))
     h = float(input("Introduce el valor de h: "))
@@ -47,7 +47,7 @@ def runge_kutta_sistema_ecuaciones():
 
     first_iteration = True
 
-    while t_min <= t_max:
+    while t_min <= (t_max + h / 2):
         # Calcular k1, k2, k3 y k4 para cada ecuación
         k1_values_temp = []
         k2_values_temp = []
