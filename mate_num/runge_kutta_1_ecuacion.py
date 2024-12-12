@@ -1,5 +1,6 @@
 import sympy as sp
 from sympy import exp, symbols
+from tabulate import tabulate
 
 
 def runge_kutta_1_ecuacion():
@@ -24,21 +25,9 @@ def runge_kutta_1_ecuacion():
     first_iteration = True
 
     i_values = [i]
-    data.append(
-        [
-
-            "-" * 5,
-            "-" * 5,
-            "-" * 5,
-            "-" * 5,
-            "-" * 5,
-            "-" * 5,
-            "-" * 5,
-        ]
-    )
 
     while t_min <= t_max:
-	
+
         k1 = h * f_lambified(t_min, wi)
         k2 = h * f_lambified(t_min + h / 2, wi + k1 / 2)
         k3 = h * f_lambified(t_min + h / 2, wi + k2 / 2)
@@ -99,12 +88,21 @@ def runge_kutta_1_ecuacion():
         t_values.append(t_min)
         y_values.append(wi)
 
+    table = []
+    for i, t, y, k1, k2, k3, k4 in zip(
+        i_values, t_values, y_values, k1_values, k2_values, k3_values, k4_values
+    ):
+        table.append([i, t, y, k1, k2, k3, k4])
 
-   # print("Resultados (t, y):")
-   # for i, t, y, k1, k2, k3, k4 in zip(
-   #     i_values, t_values, y_values, k1_values, k2_values, k3_values, k4_values
-   # ):
-   #     print(
-   #         f"i = {i}, t = {t:.6f}, y = {y:.6f}, k1 = {k1:.6f}, k2 = {k2:.6f}, k3 = {k3:.6f}, k4 = {k4:.6f}"
-   #     )
+    # Imprimimos la tabla
+    headers = ["i", "t", "y", "k1", "k2", "k3", "k4"]
+    print("\nTabla:")
+    print(tabulate(table, headers=headers, floatfmt=".6f", tablefmt="github"))
+    # print("Resultados (t, y):")
+    # for i, t, y, k1, k2, k3, k4 in zip(
+    #     i_values, t_values, y_values, k1_values, k2_values, k3_values, k4_values
+    # ):
+    #     print(
+    #         f"i = {i}, t = {t:.6f}, y = {y:.6f}, k1 = {k1:.6f}, k2 = {k2:.6f}, k3 = {k3:.6f}, k4 = {k4:.6f}"
+    #     )
     input("Presiona intro para continuar")

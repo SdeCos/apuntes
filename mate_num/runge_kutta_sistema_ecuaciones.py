@@ -1,5 +1,6 @@
 import sympy as sp
 from sympy import *
+from tabulate import tabulate
 
 
 def runge_kutta_sistema_ecuaciones():
@@ -44,6 +45,8 @@ def runge_kutta_sistema_ecuaciones():
     # Iterador
     i = 0
     i_values = [i]
+
+    tabla = []
 
     first_iteration = True
 
@@ -173,25 +176,38 @@ def runge_kutta_sistema_ecuaciones():
         y1_values.append(y1_inicial)
         y2_values.append(y2_inicial)
 
-    # Imprimir los resultados
-    print("Resultados (t, y1, y2):")
-    for i, t, y1, y2, k1_1, k2_1, k3_1, k4_1, k1_2, k2_2, k3_2, k4_2 in zip(
-        i_values,
-        t_values,
-        y1_values,
-        y2_values,
-        k1_values,
-        k2_values,
-        k3_values,
-        k4_values,
-        k1_values_2,
-        k2_values_2,
-        k3_values_2,
-        k4_values_2,
-    ):
-        print(
-            f"i = {i}, t = {t:.6f}, y1 = {y1:.6f}, y2 = {y2:.6f}, "
-            f"k1_1 = {k1_1:.6f}, k2_1 = {k2_1:.6f}, k3_1 = {k3_1:.6f}, k4_1 = {k4_1:.6f}, "
-            f"k1_2 = {k1_2:.6f}, k2_2 = {k2_2:.6f}, k3_2 = {k3_2:.6f}, k4_2 = {k4_2:.6f}"
+        tabla.append(
+            [
+                i,
+                t_min,
+                y1_inicial,
+                y2_inicial,
+                k1_1,
+                k2_1,
+                k3_1,
+                k4_1,
+                k1_2,
+                k2_2,
+                k3_2,
+                k4_2,
+            ]
         )
+
+    # Imprimir los resultados
+    headers = [
+        "i",
+        "t",
+        "y1",
+        "y2",
+        "k1_1",
+        "k2_1",
+        "k3_1",
+        "k4_1",
+        "k1_2",
+        "k2_2",
+        "k3_2",
+        "k4_2",
+    ]
+    print("\nResultados en forma de tabla:")
+    print(tabulate(tabla, headers=headers, floatfmt=".6f", tablefmt="github"))
     input()
