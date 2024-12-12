@@ -6,29 +6,34 @@ def menu():
     """menu minimos cuadrados"""
     while True:
         print("Elige el tipo de minimo")
-        print("1. Lineal")
-        print("2. Polinomial")
-        print("3. Exponencial")
-        print("4. Potencial")
-        print("5. Salir")
-        choice = input("Introduce un valor (1-5): ")
+        print("1. Lineal (grado 1)")
+        print("2. Polinomial (grado 2)")
+        print("3. Polinomial (grado 3)")
+        print("4. Exponencial (b*e^ax)")
+        print("5. Potencial (b*x^a)")
+        print("6. Salir")
+        choice = input("Introduce un valor (1-6): ")
         if choice == "1":
             lineal()
             input("Presiona intro para continuar")
             break
         elif choice == "2":
-            polinomial()
+            polinomial_grado_2()
             input("Presiona intro para continuar")
             break
         elif choice == "3":
-            exponencial()
+            polinomial_grado_3()
             input("Presiona intro para continuar")
             break
         elif choice == "4":
-            potencial()
+            exponencial()
             input("Presiona intro para continuar")
             break
         elif choice == "5":
+            potencial()
+            input("Presiona intro para continuar")
+            break
+        elif choice == "6":
             break
         else:
             print("Elige un valor valido")
@@ -37,20 +42,19 @@ def menu():
 def pedir_datos():
     """Solicita al usuario los valores de n, x y y para los cálculos."""
     # Solicitar la cantidad de puntos
-    #    n = int(input("¿Cuántos puntos deseas ingresar? "))
+    n = int(input("¿Cuántos puntos deseas ingresar? "))
 
-    n = 10
     # Inicializar listas vacías para x y y
-    x = [4, 4.2, 4.5, 4.7, 5.1, 5.5, 5.9, 6.3, 6.8, 7.1]
-    y = [102.56, 113.18, 130.11, 142.05, 167.53, 195.14, 224.87, 256.73, 299.50, 326.72]
+    x = []
+    y = []
 
     # print("Introduce los puntos (x, y):")
-    # for i in range(n):
+    for i in range(n):
     # Solicitar cada punto en formato x,y
-    #    punto = input(f"Punto {i+1} (formato x,y): ")
-    #    xi, yi = map(float, punto.split(","))
-    #    x.append(xi)
-    #    y.append(yi)
+        punto = input(f"Punto {i+1} (formato x,y): ")
+        xi, yi = map(float, punto.split(","))
+        x.append(xi)
+        y.append(yi)
 
     return n, x, y
 
@@ -126,7 +130,7 @@ def exponencial():
     print(f"Ecuación de la curva: y = {a:.5f} * e^({b:.5f} * x)")
 
 
-def polinomial():
+def polinomial_grado_2():
     """minimos cuadrados polinomial"""
     n, x, y = pedir_datos()
     # Convertir listas a arrays de numpy
@@ -221,6 +225,62 @@ def polinomial():
     # Mostrar la ecuación del polinomio
     print("\n=== Resultados ===")
     print(f"Ecuación del polinomio: y = {a0:.5f} * x^2 + {a1:.5f} * x + {a2:.5f}")
+
+
+def polinomial_grado_3():
+    n, x, y = pedir_datos()
+
+    # Convertir listas a arrays de numpy
+    x = np.array(x)
+    y = np.array(y)
+
+    # Calcular las sumas necesarias
+    sum_x3 = np.sum(x**3)
+    sum_x = np.sum(x)
+    sum_x2 = np.sum(x**2)
+    sum_x4 = np.sum(x**4)
+    sum_x5 = np.sum(x**5)
+    sum_x6 = np.sum(x**6)
+    sum_y = np.sum(y)
+    sum_xy = np.sum(x * y)
+    sum_x2y = np.sum(x**2 * y)
+    sum_x3y = np.sum(x**3 * y)
+
+    # Crear la matriz A y el vector B para el sistema de ecuaciones
+    A = np.array(
+        [
+            [sum_x6, sum_x5, sum_x4, sum_x3],
+            [sum_x5, sum_x4, sum_x3, sum_x2],
+            [sum_x4, sum_x3, sum_x2, sum_x],
+            [sum_x3, sum_x2, sum_x, n],
+        ]
+    )
+
+    B = np.array([sum_x3y, sum_x2y, sum_xy, sum_y])
+
+    # Mostrar la matriz A y el vector B
+    print("\nMatriz A y Vector B:")
+    for i in range(len(B)):
+        print(
+            " ".join([f"{A[i, j]:>10.5f}" for j in range(A.shape[1])])
+            + f" | {B[i]:>10.5f}"
+        )
+
+    # Resolver el sistema de ecuaciones
+    coef = np.linalg.solve(A, B)
+
+    a3, a2, a1, a0 = coef
+
+    # Mostrar los coeficientes del polinomio
+    print(f"\nCoeficientes del polinomio de grado 3:")
+    print(f"a3 = {a3:.5f}")
+    print(f"a2 = {a2:.5f}")
+    print(f"a1 = {a1:.5f}")
+    print(f"a0 = {a0:.5f}")
+
+    # Mostrar la ecuación del polinomio
+    print("\nEcuación del polinomio de grado 3:")
+    print(f"y = {a3:.5f} * x^3 + {a2:.5f} * x^2 + {a1:.5f} * x + {a0:.5f}")
 
 
 def potencial():
