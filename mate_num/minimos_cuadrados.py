@@ -1,9 +1,20 @@
+import os
+
 import numpy as np
 from tabulate import tabulate
 
 
+def clear_terminal():
+    """limpia la terminal"""
+    os.system("clear" if os.name != "nt" else "cls")
+
+
 def menu():
     """menu minimos cuadrados"""
+
+    print("=== Introduce los datos ===")
+    n, x, y = pedir_datos()
+    clear_terminal()
     while True:
         print("Elige el tipo de minimo")
         print("1. Lineal (grado 1)")
@@ -14,25 +25,30 @@ def menu():
         print("6. Salir")
         choice = input("Introduce un valor (1-6): ")
         if choice == "1":
-            lineal()
+            clear_terminal()
+            lineal(n, x, y)
             input("Presiona intro para continuar")
-            break
+            clear_terminal()
         elif choice == "2":
-            polinomial_grado_2()
+            clear_terminal()
+            polinomial_grado_2(n, x, y)
             input("Presiona intro para continuar")
-            break
+            clear_terminal()
         elif choice == "3":
-            polinomial_grado_3()
+            clear_terminal()
+            polinomial_grado_3(n, x, y)
             input("Presiona intro para continuar")
-            break
+            clear_terminal()
         elif choice == "4":
-            exponencial()
+            clear_terminal()
+            exponencial(n, x, y)
             input("Presiona intro para continuar")
-            break
+            clear_terminal()
         elif choice == "5":
-            potencial()
+            clear_terminal()
+            potencial(n, x, y)
             input("Presiona intro para continuar")
-            break
+            clear_terminal()
         elif choice == "6":
             break
         else:
@@ -50,7 +66,7 @@ def pedir_datos():
 
     # print("Introduce los puntos (x, y):")
     for i in range(n):
-    # Solicitar cada punto en formato x,y
+        # Solicitar cada punto en formato x,y
         punto = input(f"Punto {i+1} (formato x,y): ")
         xi, yi = map(float, punto.split(","))
         x.append(xi)
@@ -59,11 +75,11 @@ def pedir_datos():
     return n, x, y
 
 
-def exponencial():
+def exponencial(n_in, x_in, y_in):
     """minimos cuadrados exponencial"""
     # Datos predefinidos para pruebas
 
-    n, x, y = pedir_datos()
+    n, x, y = n_in, x_in, y_in
     # Convertir listas a arrays de numpy
     x = np.array(x)
     y = np.array(y)
@@ -130,9 +146,9 @@ def exponencial():
     print(f"Ecuación de la curva: y = {a:.5f} * e^({b:.5f} * x)")
 
 
-def polinomial_grado_2():
+def polinomial_grado_2(n_in, x_in, y_in):
     """minimos cuadrados polinomial"""
-    n, x, y = pedir_datos()
+    n, x, y = n_in, x_in, y_in
     # Convertir listas a arrays de numpy
     x = np.array(x)
     y = np.array(y)
@@ -227,9 +243,9 @@ def polinomial_grado_2():
     print(f"Ecuación del polinomio: y = {a0:.5f} * x^2 + {a1:.5f} * x + {a2:.5f}")
 
 
-def polinomial_grado_3():
-    n, x, y = pedir_datos()
+def polinomial_grado_3(n_in, x_in, y_in):
 
+    n, x, y = n_in, x_in, y_in
     # Convertir listas a arrays de numpy
     x = np.array(x)
     y = np.array(y)
@@ -283,10 +299,10 @@ def polinomial_grado_3():
     print(f"y = {a3:.5f} * x^3 + {a2:.5f} * x^2 + {a1:.5f} * x + {a0:.5f}")
 
 
-def potencial():
+def potencial(n_in, x_in, y_in):
     """minimos cuadrados potencial"""
     # Datos predefinidos para pruebas
-    n, x, y = pedir_datos()
+    n, x, y = n_in, x_in, y_in
     # Convertir listas a arrays de numpy
     x = np.array(x)
     y = np.array(y)
@@ -361,10 +377,10 @@ def potencial():
     print(f"Ecuación de la curva: y = {b:.5f} * x^{a:.5f}")
 
 
-def lineal():
+def lineal(n_in, x_in, y_in):
     """minimos cuadrados lineal"""
     # Solicitar datos al usuario
-    n, x, y = pedir_datos()
+    n, x, y = n_in, x_in, y_in
 
     # Convertir las listas a arrays de numpy
     x = np.array(x)
