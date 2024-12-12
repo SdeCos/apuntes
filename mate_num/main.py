@@ -5,7 +5,7 @@ from diferenciacion_numerica import diferenciacion_numerica
 from integracion_numerica import integracion_numerica
 from integracion_numerica_compuesta import integracion_numerica_compuesta
 from minimos_cuadrados import menu as mc_menu
-from runge_kutta_1_ecuacion import runge_kutta_1_ecuacion
+from runge_kutta import menu as rk_menu
 from runge_kutta_sistema_ecuaciones import runge_kutta_sistema_ecuaciones
 from taylor import taylor
 
@@ -20,9 +20,8 @@ def menu():
         print("3. Integracion Numerica Compuesta")
         print("4. Metodo de Euler")
         print("5. Metodo de Taylor")
-        print("6. Metodo de Runge-Kutta 1 ecuacion")
-        print("7. Metodo de Runge-Kutta sistema de ecuaciones")
-        print("8. Exit")
+        print("6. Metodo de Runge-Kutta")
+        print("7. Exit")
         choice = input("Introduce un valor (1-X): ")
         if choice == "1":
             clear_terminal()
@@ -46,13 +45,9 @@ def menu():
             clear_terminal()
         elif choice == "6":
             clear_terminal()
-            runge_kutta_1_ecuacion()
+            rk_menu()
             clear_terminal()
         elif choice == "7":
-            clear_terminal()
-            runge_kutta_sistema_ecuaciones()
-            clear_terminal()
-        elif choice == "8":
             print("\n==== Exiting the program. ====")
             break
         else:
