@@ -34,13 +34,32 @@ def menu():
             print("Elige un valor valido")
 
 
+def pedir_datos():
+    """Solicita al usuario los valores de n, x y y para los cálculos."""
+    # Solicitar la cantidad de puntos
+    #    n = int(input("¿Cuántos puntos deseas ingresar? "))
+
+    n = 10
+    # Inicializar listas vacías para x y y
+    x = [4, 4.2, 4.5, 4.7, 5.1, 5.5, 5.9, 6.3, 6.8, 7.1]
+    y = [102.56, 113.18, 130.11, 142.05, 167.53, 195.14, 224.87, 256.73, 299.50, 326.72]
+
+    # print("Introduce los puntos (x, y):")
+    # for i in range(n):
+    # Solicitar cada punto en formato x,y
+    #    punto = input(f"Punto {i+1} (formato x,y): ")
+    #    xi, yi = map(float, punto.split(","))
+    #    x.append(xi)
+    #    y.append(yi)
+
+    return n, x, y
+
+
 def exponencial():
     """minimos cuadrados exponencial"""
     # Datos predefinidos para pruebas
-    n = 5
-    x = [1, 2, 3, 4, 5]
-    y = [1.12, 3.87, 9.02, 16.81, 24.93]
 
+    n, x, y = pedir_datos()
     # Convertir listas a arrays de numpy
     x = np.array(x)
     y = np.array(y)
@@ -109,10 +128,7 @@ def exponencial():
 
 def polinomial():
     """minimos cuadrados polinomial"""
-    n = 5
-    x = [1, 2, 3, 4, 5]
-    y = [1.12, 3.87, 9.02, 16.81, 24.93]
-
+    n, x, y = pedir_datos()
     # Convertir listas a arrays de numpy
     x = np.array(x)
     y = np.array(y)
@@ -210,10 +226,7 @@ def polinomial():
 def potencial():
     """minimos cuadrados potencial"""
     # Datos predefinidos para pruebas
-    n = 5
-    x = [1, 2, 3, 4, 5]
-    y = [1.12, 3.87, 9.02, 16.81, 24.93]
-
+    n, x, y = pedir_datos()
     # Convertir listas a arrays de numpy
     x = np.array(x)
     y = np.array(y)
@@ -291,18 +304,7 @@ def potencial():
 def lineal():
     """minimos cuadrados lineal"""
     # Solicitar datos al usuario
-    # n = int(input("¿Cuántos puntos deseas ingresar? "))
-    n = 5
-
-    x = [1, 2, 3, 4, 5]
-    y = [1.12, 3.87, 9.02, 16.81, 24.93]
-
-    # print("Introduce los puntos (x, y):")
-    # for i in range(n):
-    #    punto = input(f"Punto {i+1} (formato x,y): ")
-    #    xi, yi = map(float, punto.split(","))
-    #    x.append(xi)
-    #    y.append(yi)
+    n, x, y = pedir_datos()
 
     # Convertir las listas a arrays de numpy
     x = np.array(x)
