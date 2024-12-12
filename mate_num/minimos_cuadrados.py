@@ -173,46 +173,38 @@ def polinomial():
     print("\n=== Tabla de Datos ===")
     print(tabulate(data, headers=headers, floatfmt=".5f", tablefmt="pretty"))
 
-    # Cálculos paso a paso
-    print("\n=== Cálculos Paso a Paso ===")
-    S0 = round(np.sum(x**0), 5)  # Suma de x^0 (esto es solo n)
-    S1 = round(np.sum(x), 5)
-    S2 = round(np.sum(x2), 5)
-    S3 = round(np.sum(x3), 5)
-    S4 = round(np.sum(x4), 5)
-    S5 = round(np.sum(x_y), 5)
-    S6 = round(np.sum(x * y), 5)
-    S7 = round(np.sum(x2 * y), 5)
+    # Formar la matriz para resolver el sistema
+    A = np.array(
+        [
+            [n, np.sum(x), np.sum(x2)],
+            [np.sum(x), np.sum(x2), np.sum(x3)],
+            [np.sum(x2), np.sum(x3), np.sum(x4)],
+        ]
+    )
 
-    # Mostrar los sumatorios
-    print(f"Suma de x^0 (S0): {S0:.5f}")
-    print(f"Suma de x (S1): {S1:.5f}")
-    print(f"Suma de x^2 (S2): {S2:.5f}")
-    print(f"Suma de x^3 (S3): {S3:.5f}")
-    print(f"Suma de x^4 (S4): {S4:.5f}")
-    print(f"Suma de x*y (S5): {S5:.5f}")
-    print(f"Suma de x^2*y (S6): {S6:.5f}")
+    B = np.array([np.sum(y), np.sum(x * y), np.sum(x2 * y)])
 
-    # Sistema de ecuaciones: [S4, S3, S2] [a2] = [S6]
-    #                           [S3, S2, S1] [a1] = [S5]
-    #                           [S2, S1, n]   [a0] = [S0]
-
-    A = np.array([[S4, S3, S2], [S3, S2, S1], [S2, S1, S0]])
-
-    B = np.array([S7, S6, S5])
+    # Mostrar la matriz A y el vector B
+    print("\nMatriz:")
+    for i in range(len(B)):
+        # Imprimir la fila de la matriz A y luego el valor correspondiente de B a la derecha
+        print(
+            " ".join([f"{A[i, j]:>10.5f}" for j in range(A.shape[1])])
+            + f" | {B[i]:>10.5f}"
+        )
 
     # Resolver el sistema de ecuaciones
     coef = np.linalg.solve(A, B)
 
     a2, a1, a0 = coef
 
-    print(f"\na2 = {a2:.5f}")
+    print(f"\na0 = {a2:.5f}")
     print(f"a1 = {a1:.5f}")
-    print(f"a0 = {a0:.5f}")
+    print(f"a2 = {a0:.5f}")
 
     # Mostrar la ecuación del polinomio
     print("\n=== Resultados ===")
-    print(f"Ecuación del polinomio: y = {a2:.5f} * x^2 + {a1:.5f} * x + {a0:.5f}")
+    print(f"Ecuación del polinomio: y = {a0:.5f} * x^2 + {a1:.5f} * x + {a2:.5f}")
 
 
 def potencial():

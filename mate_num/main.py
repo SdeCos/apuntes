@@ -56,6 +56,7 @@ def menu():
             print("\n==== Exiting the program. ====")
             break
         else:
+            clear_terminal()
             print("Elige un valor valido")
 
 
