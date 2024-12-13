@@ -1,13 +1,9 @@
 # main.py
 import os
 
-from diferenciacion_numerica import diferenciacion_numerica
-from integracion_numerica import integracion_numerica
-from integracion_numerica_compuesta import integracion_numerica_compuesta
+# Jkfrom euler import euler
 from minimos_cuadrados import menu as mc_menu
 from runge_kutta import menu as rk_menu
-from runge_kutta_sistema_ecuaciones import runge_kutta_sistema_ecuaciones
-from taylor import taylor
 
 
 def menu():
@@ -16,11 +12,8 @@ def menu():
     while True:
         print("Elige el tipo de problema")
         print("1. Minimos Cuadrados")
-        print("2. Diferenciacion numerica")
-        print("3. Integracion Numerica Compuesta")
-        print("4. Metodo de Euler")
-        print("5. Metodo de Taylor")
-        print("6. Metodo de Runge-Kutta")
+        print("2. Metodo de Runge-Kutta")
+        print("3. Euler")
         print("7. Exit")
         choice = input("Introduce un valor (1-X): ")
         if choice == "1":
@@ -29,25 +22,13 @@ def menu():
             clear_terminal()
         elif choice == "2":
             clear_terminal()
-            diferenciacion_numerica()
+            rk_menu()
             clear_terminal()
         elif choice == "3":
             clear_terminal()
-            integracion_numerica_compuesta()
+            # euler()
             clear_terminal()
         elif choice == "4":
-            clear_terminal()
-            #    euler()
-            clear_terminal()
-        elif choice == "5":
-            clear_terminal()
-            taylor()
-            clear_terminal()
-        elif choice == "6":
-            clear_terminal()
-            rk_menu()
-            clear_terminal()
-        elif choice == "7":
             print("\n==== Exiting the program. ====")
             break
         else:

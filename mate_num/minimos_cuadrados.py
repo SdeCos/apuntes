@@ -252,6 +252,7 @@ def polinomial_grado_3(n_in, x_in, y_in):
 
     # Calcular las sumas necesarias
     sum_x3 = np.sum(x**3)
+    sum_x0 = np.sum(x**0)
     sum_x = np.sum(x)
     sum_x2 = np.sum(x**2)
     sum_x4 = np.sum(x**4)
@@ -262,17 +263,73 @@ def polinomial_grado_3(n_in, x_in, y_in):
     sum_x2y = np.sum(x**2 * y)
     sum_x3y = np.sum(x**3 * y)
 
-    # Crear la matriz A y el vector B para el sistema de ecuaciones
-    A = np.array(
+    data = []
+    for i in range(n):
+        fila = [
+            "----",
+            round(1, 5),
+            round(x[i], 5),
+            round(x[i] ** 2, 5),
+            round(x[i] ** 3, 5),
+            round(x[i] ** 4, 5),
+            round(x[i] ** 5, 5),
+            round(x[i] ** 6, 5),
+            round(y[i], 5),
+            round(x[i] * y[i], 5),
+            round((x[i] ** 2) * y[i], 5),
+            round((x[i] ** 3) * y[i], 5),
+        ]
+        data.append(fila)
+
+    # Agregar una fila separadora
+    data.append(["----"] * len(data[0]))
+    # Agregar las sumas al final de la tabla
+    data.append(
         [
-            [sum_x6, sum_x5, sum_x4, sum_x3],
-            [sum_x5, sum_x4, sum_x3, sum_x2],
-            [sum_x4, sum_x3, sum_x2, sum_x],
-            [sum_x3, sum_x2, sum_x, n],
+            "SUMA",
+            round(sum_x0, 5),
+            round(sum_x, 5),
+            round(sum_x2, 5),
+            round(sum_x3, 5),
+            round(sum_x4, 5),
+            round(sum_x5, 5),
+            round(sum_x6, 5),
+            round(sum_y, 5),
+            round(sum_xy, 5),
+            round(sum_x2y, 5),
+            round(sum_x3y, 5),
         ]
     )
 
-    B = np.array([sum_x3y, sum_x2y, sum_xy, sum_y])
+    headers = [
+        "----",
+        "x^0",
+        "x",
+        "x^2",
+        "x^3",
+        "x^4",
+        "x^5",
+        "x^6",
+        "y",
+        "x*y",
+        "x^2*y",
+        "x^3*y",
+    ]
+
+    print("\n=== Tabla de Datos ===")
+    print(tabulate(data, headers=headers, floatfmt=".5f", tablefmt="pretty"))
+
+    # Crear la matriz A y el vector B para el sistema de ecuaciones
+    A = np.array(
+        [
+            [n, sum_x, sum_x2, sum_x3],
+            [sum_x, sum_x2, sum_x3, sum_x4],
+            [sum_x2, sum_x3, sum_x4, sum_x5],
+            [sum_x3, sum_x4, sum_x5, sum_x6],
+        ]
+    )
+
+    B = np.array([sum_y, sum_xy, sum_x2y, sum_x3y])
 
     # Mostrar la matriz A y el vector B
     print("\nMatriz A y Vector B:")
@@ -285,7 +342,7 @@ def polinomial_grado_3(n_in, x_in, y_in):
     # Resolver el sistema de ecuaciones
     coef = np.linalg.solve(A, B)
 
-    a3, a2, a1, a0 = coef
+    a0, a1, a2, a3 = coef
 
     # Mostrar los coeficientes del polinomio
     print(f"\nCoeficientes del polinomio de grado 3:")
