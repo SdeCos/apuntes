@@ -132,7 +132,6 @@ def runge_kutta_1_ecuacion():
     #     print(
     #         f"i = {i}, t = {t:.6f}, y = {y:.6f}, k1 = {k1:.6f}, k2 = {k2:.6f}, k3 = {k3:.6f}, k4 = {k4:.6f}"
     #     )
-    input("Presiona intro para continuar")
 
 
 def runge_kutta_2_ecuaciones():
@@ -342,7 +341,6 @@ def runge_kutta_2_ecuaciones():
     ]
     print("\nResultados en forma de tabla:")
     print(tabulate(tabla, headers=headers, floatfmt=".6f", tablefmt="github"))
-    input()
 
 
 def runge_kutta_3_ecuaciones():
