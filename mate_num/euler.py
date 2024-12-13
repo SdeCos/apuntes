@@ -39,7 +39,7 @@ def euler_method(f, y0, tmin, tmax, h, ecuacion):
             print(f"  Cálculo de w_{i} = w_{i-1} + h * f(t_{i-1}, w_{i-1})")
             y_result_primera_iteracion = y_values[i - 1] + h * f_values[i - 1]
             print(
-                f"  w_{i} = {y_values[i-1]:.7f} + {h:.7f} * {f_values[i-1]:.7f} = {y_result_primera_iteracion:.7f}"
+                f"  w_{i} = {y_values[i-1]:.7f} + {h:.7f} * {f_values[i-1]:.7f} = {y_result_primera_iteracion:.7}"
             )
         y_values[i] = y_values[i - 1] + h * f_values[i - 1]  # Método de Euler
 
@@ -99,8 +99,4 @@ def main():
     print("-" * 45)
     for t, y, f_val in zip(t_values, y_values, f_values):
         print(f"{t:>10.7f} {y:>15.7f} {f_val:>15.7f}")
-
-
-# Ejecutar el programa
-if __name__ == "__main__":
-    main()
+    input("Presiona intro para continuar")

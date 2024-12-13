@@ -1,6 +1,8 @@
 # main.py
 import os
 
+from euler import main as euler
+
 # Jkfrom euler import euler
 from minimos_cuadrados import menu as mc_menu
 from runge_kutta import menu as rk_menu
@@ -14,7 +16,7 @@ def menu():
         print("1. Minimos Cuadrados")
         print("2. Metodo de Runge-Kutta")
         print("3. Euler")
-        print("7. Exit")
+        print("5. Exit")
         choice = input("Introduce un valor (1-X): ")
         if choice == "1":
             clear_terminal()
@@ -26,9 +28,9 @@ def menu():
             clear_terminal()
         elif choice == "3":
             clear_terminal()
-            # euler()
+            euler()
             clear_terminal()
-        elif choice == "4":
+        elif choice == "5":
             print("\n==== Exiting the program. ====")
             break
         else:
