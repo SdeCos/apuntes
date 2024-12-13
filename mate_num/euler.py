@@ -4,14 +4,12 @@ import numpy as np
 def euler_method(f, y0, tmin, tmax, h, ecuacion):
     """
     Resuelve una ecuación diferencial utilizando el método de Euler.
-
     Parámetros:
     f : función - La ecuación diferencial en forma f(t, y)
     y0 : float - Condición inicial para y en t = tmin
     tmin : float - Valor mínimo de t
     tmax : float - Valor máximo de t
     h : float - Tamaño del paso (step size)
-
     Devuelve:
     t_values : array - Los valores de t
     y_values : array - Los valores aproximados de y
@@ -22,7 +20,6 @@ def euler_method(f, y0, tmin, tmax, h, ecuacion):
     y_values = np.zeros(len(t_values))
     f_values = np.zeros(len(t_values))
     y_values[0] = y0
-
     # Aplicar el método de Euler
     for i in range(1, len(t_values)):
         f_values[i - 1] = f(t_values[i - 1], y_values[i - 1])  # Evaluamos f(t_i, w_i)
@@ -39,13 +36,11 @@ def euler_method(f, y0, tmin, tmax, h, ecuacion):
             print(f"  Cálculo de w_{i} = w_{i-1} + h * f(t_{i-1}, w_{i-1})")
             y_result_primera_iteracion = y_values[i - 1] + h * f_values[i - 1]
             print(
-                f"  w_{i} = {y_values[i-1]:.7f} + {h:.7f} * {f_values[i-1]:.7f} = {y_result_primera_iteracion:.7}"
+                f"  w_{i} = {y_values[i-1]:.7f} + {h:.7f} * {f_values[i-1]:.7f} = {y_result_primera_iteracion:.7f}"
             )
         y_values[i] = y_values[i - 1] + h * f_values[i - 1]  # Método de Euler
-
     # Evaluamos f en el último valor
     f_values[-1] = f(t_values[-1], y_values[-1])
-
     return t_values, y_values, f_values
 
 
@@ -80,23 +75,25 @@ def convertir_a_funcion(ecuacion):
 def main():
     # Obtener la ecuación de la forma 'f(t, y)'
     ecuacion = obtener_funcion_usuario()
-
     # Convertir la ecuación a una función de Python
     f = convertir_a_funcion(ecuacion)
-
     # Solicitar los valores de tmin, tmax, h y y0
     tmin = float(input("Introduce el valor mínimo de t (tmin): "))
     tmax = float(input("Introduce el valor máximo de t (tmax): "))
     h = float(input("Introduce el tamaño del paso h: "))
     y0 = float(input("Introduce el valor inicial de y (y0): "))
-
     # Resolver la ecuación diferencial utilizando el método de Euler
     t_values, y_values, f_values = euler_method(f, y0, tmin, tmax, h, ecuacion)
-
     # Imprimir los resultados
     print("\nResultados:")
     print(f"{'ti':>10} {'wi':>15} {'f(ti, wi)':>15}")
     print("-" * 45)
     for t, y, f_val in zip(t_values, y_values, f_values):
         print(f"{t:>10.7f} {y:>15.7f} {f_val:>15.7f}")
+
     input("Presiona intro para continuar")
+
+
+# Ejecutar el programa
+if __name__ == "__main__":
+    main()
