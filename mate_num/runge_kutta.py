@@ -631,4 +631,3 @@ def runge_kutta_3_ecuaciones():
     ]
     print("\nResultados en forma de tabla:")
     print(tabulate(tabla, headers=headers, floatfmt=".6f", tablefmt="github"))
-    input()

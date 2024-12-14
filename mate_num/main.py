@@ -5,6 +5,7 @@ from euler import main as euler
 
 # Jkfrom euler import euler
 from minimos_cuadrados import menu as mc_menu
+from punto_medio import main as punto_medio
 from runge_kutta import menu as rk_menu
 from taylor import main as taylor
 
@@ -18,7 +19,8 @@ def menu():
         print("2. Metodo de Runge-Kutta")
         print("3. Euler")
         print("4. Taylor")
-        print("5. Exit")
+        print("5. Punto medio (Runge-Kutta de Orden 2)")
+        print("6. Exit")
         choice = input("Introduce un valor (1-X): ")
         if choice == "1":
             clear_terminal()
@@ -37,6 +39,10 @@ def menu():
             taylor()
             clear_terminal()
         elif choice == "5":
+            clear_terminal()
+            punto_medio()
+            clear_terminal()
+        elif choice == "6":
             print("\n==== Exiting the program. ====")
             break
         else:
