@@ -69,7 +69,11 @@ def main():
     func_input = input("Introduce la funcion a integrar: ")  # Función como string
     a = int(input("Introduce el limite inferior de la integral: "))  # Límite inferior
     b = int(input("Introduce el limite superior de la integral: "))  # Límite superior
-    n = int(input("Introduce el numero de divisiones: "))  # Número de subintervalos
+    n = int(
+        input(
+            "Introduce el numero de divisiones (1 para newton cotes-cerrada / regla trapezoidal): "
+        )
+    )  # Número de subintervalos
 
     # Calcular la integral
     resultado = regla_trapezoidal_compuesta_sympy(func_input, a, b, n)
