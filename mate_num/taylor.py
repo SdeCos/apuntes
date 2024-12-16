@@ -4,20 +4,36 @@ import sympy as sp
 
 def obtener_funcion_usuario():
     """
-    Función para solicitar la ecuación de la forma 'f(t, y)' al usuario.
+    Solicita al usuario una ecuación en términos de t y y.
     """
-    # Puedes cambiar esta ecuación para probar
-    ecuacion = input("Introduce la ecuacion: ")  # Ecuación por defecto
+    ecuacion = input(
+        "Introduce la ecuación en términos de t y y (por ejemplo: exp(t-y)): "
+    )
     return ecuacion
 
 
 def convertir_a_funcion(ecuacion):
     """
     Convierte la cadena de texto con la ecuación a una función simbólica.
+    Maneja funciones comunes como exp, sin, cos, log, etc.
     """
     t, y = sp.symbols("t y")
-    ecuacion = ecuacion.replace("exp", "sp.exp")
-    f = sp.sympify(ecuacion)  # Convertimos la ecuación a una expresión simbólica
+
+    # Diccionario con funciones matemáticas soportadas
+    funciones_permitidas = {
+        "exp": sp.exp,
+        "sin": sp.sin,
+        "cos": sp.cos,
+        "tan": sp.tan,
+        "log": sp.log,
+    }
+
+    try:
+        # sympify con funciones matemáticas explícitas
+        f = sp.sympify(ecuacion, locals=funciones_permitidas)
+    except Exception as e:
+        raise ValueError(f"Error al interpretar la ecuación: {ecuacion}\n{e}")
+
     return f, t, y
 
 
@@ -57,48 +73,28 @@ def taylor_order_2(f, tmin, tmax, h, y0, ecuacion_original):
     print(f"y' = {f}")
     print(f"y'' = {f_prime}\n")
 
-    # Mostrar la primera iteración paso a paso
-    print("\nPrimera iteración paso a paso:")
-    t_0 = t_values[0]
-    y_0 = y_values[0]
-    print("===================================")
-    print(f"Paso 1: t_0 = {t_0}, w_0 = {y_0}")
-
-    # Evaluar f en el punto inicial
-    f_value = f.subs({t: t_0, y: y_0})
-    f_string = str(f)
-    f_subs = f_string.replace(str(y), f"({y_0:.6f})").replace(str(t), f"({t_0:.6f})")
-    print(f"f(t_0, w_0) = f({t_0}, {y_0}) = {f_subs} = {f_value:.6f}")
-
-    # Evaluar la derivada total en el punto inicial
-    f_prime_value = f_prime.subs({t: t_0, y: y_0})
-    f_prime_string = str(f)
-    f_prime_subs = f_prime_string.replace(str(y), f"({y_0:.6f})").replace(
-        str(t), f"({t_0:.6f})"
-    )
-    print(f"f'(t_0, w_0) = f'({t_0}, {y_0}) = {f_prime_subs} = {f_prime_value:.6f}")
-
-    # Usar la fórmula de Taylor de orden 2 para calcular el siguiente valor
-    w_1 = y_0 + h * f_value + (h**2 / 2) * f_prime_value
-    print(f"\nCálculo de w_1:")
-    print(f"w_1 = w_0 + h * f(t_0, y_0) + (h^2 / 2) * f'(t_0, y_0)")
-    print(f"w_1 = {y_0} + {h} * {f_value} + ({h**2} / 2) * {f_prime_value}")
-    print(f"w_1 = {w_1}\n")
-
-    # Guardar el resultado de la primera iteración
-    y_values[1] = w_1
-
-    # Iterar para el resto de los pasos
-    for i in range(1, len(t_values) - 1):
+    # Iterar para calcular los valores aproximados de y
+    for i in range(len(t_values) - 1):
         t_i = t_values[i]
         y_i = y_values[i]
 
-        # Evaluar f y su derivada total
-        f_value = f.subs({t: t_i, y: y_i})
-        f_prime_value = f_prime.subs({t: t_i, y: y_i})
+        # Evaluar f y su derivada total en el punto actual
+        f_value = float(f.subs({t: t_i, y: y_i}))
+        f_prime_value = float(f_prime.subs({t: t_i, y: y_i}))
 
-        # Calcular el siguiente valor usando Taylor de orden 2
+        # Usar la fórmula de Taylor de orden 2 para calcular el siguiente valor
         y_values[i + 1] = y_i + h * f_value + (h**2 / 2) * f_prime_value
+
+        # Mostrar los pasos para cada iteración
+        print(f"\nPaso {i + 1}:")
+        print(f"t_{i} = {t_i:.6f}, y_{i} = {y_i:.6f}")
+        print(f"f(t_{i}, y_{i}) = {f_value:.6f}")
+        print(f"f'(t_{i}, y_{i}) = {f_prime_value:.6f}")
+        print(f"y_{i+1} = y_{i} + h * f + (h^2 / 2) * f'")
+        print(
+            f"y_{i+1} = {y_i:.6f} + {h:.6f} * {f_value:.6f} + ({h**2:.6f} / 2) * {f_prime_value:.6f}"
+        )
+        print(f"y_{i+1} ≈ {y_values[i + 1]:.6f}")
 
     return t_values, y_values
 
@@ -108,17 +104,20 @@ def main():
     ecuacion = obtener_funcion_usuario()
 
     # Parámetros del problema
-    tmin = float(input("Introduce el valor minimo de t: "))
-    tmax = float(input("Introduce el valor maximo de t: "))
-    h = float(input("Introduce el valor de h: "))
-    w0 = float(input("Introduce el valor de w0: "))
+    tmin = float(input("Introduce el valor mínimo de t (tmin): "))
+    tmax = float(input("Introduce el valor máximo de t (tmax): "))
+    h = float(input("Introduce el valor de h (tamaño del paso): "))
+    y0 = float(input("Introduce el valor inicial y0: "))
 
     # Resolver la ecuación diferencial usando el método de Taylor
-    t_values, y_values = taylor_order_2(ecuacion, tmin, tmax, h, w0, ecuacion)
+    t_values, y_values = taylor_order_2(ecuacion, tmin, tmax, h, y0, ecuacion)
 
     # Mostrar resultados
     print("\nResultados:")
     for t, y in zip(t_values, y_values):
         print(f"t = {t:.2f}, y ≈ {y:.6f}")
-
     input("Presiona intro para continuar")
+
+
+if __name__ == "__main__":
+    main()
