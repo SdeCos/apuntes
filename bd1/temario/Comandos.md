@@ -14,3 +14,4 @@
 - Iniciar consola en el contenedor: **docker exec -it mysql_bd /bin/bash**
 - Ir a la carpeta compartida, donde esta el archivo .sql de la base de datos: **cd shared-folder**
 - Importar base de datos (antes hay que crearla): **mysql -u saul -p nombre_bd < archivo.sql**
+- Exportar base de datos: **mysqldump -u saul -p nombre_bd > archivo.sql**
