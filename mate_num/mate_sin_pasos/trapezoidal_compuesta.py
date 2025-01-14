@@ -67,8 +67,8 @@ def main():
     # Definir los datos de entrada
     print("Cálculo de la regla trapezoidal compuesta paso a paso (usando SymPy):\n")
     func_input = input("Introduce la funcion a integrar: ")  # Función como string
-    a = int(input("Introduce el limite inferior de la integral: "))  # Límite inferior
-    b = int(input("Introduce el limite superior de la integral: "))  # Límite superior
+    a = float(input("Introduce el limite inferior de la integral: "))  # Límite inferior
+    b = float(input("Introduce el limite superior de la integral: "))  # Límite superior
     n = int(
         input(
             "Introduce el numero de divisiones (1 para newton cotes-cerrada / regla trapezoidal): "
