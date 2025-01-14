@@ -1,9 +1,13 @@
---TODO NOTE: charset disponibles
+-- NOTE: charset disponibles
 -- 
+-- utf8mb4 99% del uso
+-- utf8 admite menos caracteres
+-- ascii solo permite caracteres basicos
 
---TODO NOTE: collate disponibles
+-- NOTE: collate disponibles
 -- 
-
+-- utf8mb4_unicode_ci 99% del uso
+-- utf8_spanish2_ci espanol
 CREATE TABLE IF NOT EXISTS `` (
   `` varchar(10) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL,
   `` varchar(15) CHARACTER SET ascii COLLATE ascii_general_ci DEFAULT NULL,

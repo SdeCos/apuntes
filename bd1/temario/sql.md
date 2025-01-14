@@ -211,7 +211,7 @@ Si se copia la tabla en una nueva mediante el comando **create table 'nombre2' a
 ## Collation
 
 Tipo de dato, dependiendo de este puede que reconozca o no acentos o la n~, consume mas espacio
-Hay 2 tipos de espanol, el moderno(utf8_spanish2_ci) u el tradicional (utf8_spanish+ci), el tradicional considera "ch" como una letra entre la "c" y la "d", ademas de "ll" entre la "l" y la "m".
+Hay 2 tipos de espanol, el moderno(utf8_spanish2_ci) y el tradicional (utf8_spanish_ci), el tradicional considera "ch" como una letra entre la "c" y la "d", ademas de "ll" entre la "l" y la "m".
 
 ## Tipos de datos
 
