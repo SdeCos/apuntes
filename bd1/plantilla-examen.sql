@@ -13,7 +13,6 @@ CREATE TABLE IF NOT EXISTS `` (
   `` varchar(15) CHARACTER SET ascii COLLATE ascii_general_ci DEFAULT NULL,
   `` decimal(12,2) DEFAULT NULL,
   PRIMARY KEY (``),
-  KEY `edificio` (`edificio`)
 ) ENGINE=InnoDB DEFAULT CHARSET=ascii COLLATE=ascii_general_ci;
 
 -- NOTE: otro formato de create table
